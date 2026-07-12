@@ -1,6 +1,5 @@
 "use client"
 
-import { useState } from "react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { motion, AnimatePresence } from "framer-motion"
@@ -30,8 +29,12 @@ const bottomNavItems = [
   { href: '/admin', label: 'Admin', icon: LayoutDashboard },
 ]
 
-export function Sidebar() {
-  const [collapsed, setCollapsed] = useState(false)
+interface SidebarProps {
+  collapsed: boolean
+  onCollapse: (v: boolean) => void
+}
+
+export function Sidebar({ collapsed, onCollapse }: SidebarProps) {
   const pathname = usePathname()
 
   return (
@@ -169,7 +172,7 @@ export function Sidebar() {
 
       {/* Collapse toggle */}
       <button
-        onClick={() => setCollapsed(!collapsed)}
+        onClick={() => onCollapse(!collapsed)}
         className="absolute -right-3 top-20 w-6 h-6 rounded-full bg-white border border-gray-200 shadow-md flex items-center justify-center hover:bg-gray-50 transition-colors z-10"
       >
         {collapsed ? <ChevronRight className="w-3 h-3 text-gray-500" /> : <ChevronLeft className="w-3 h-3 text-gray-500" />}

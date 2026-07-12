@@ -8,7 +8,11 @@ import { Badge } from "@/components/ui/badge"
 import { Input } from "@/components/ui/input"
 import Link from "next/link"
 
-export function TopBar() {
+interface TopBarProps {
+  collapsed: boolean
+}
+
+export function TopBar({ collapsed }: TopBarProps) {
   const [isDark, setIsDark] = useState(false)
   const [showNotifications, setShowNotifications] = useState(false)
 
@@ -18,8 +22,9 @@ export function TopBar() {
   }
 
   return (
-    <header className="fixed top-0 right-0 left-0 z-30 h-16 bg-white/80 dark:bg-gray-900/80 backdrop-blur-xl border-b border-gray-100 dark:border-gray-800 flex items-center gap-4 px-6"
-      style={{ paddingLeft: '256px' }}
+    <header
+      className="fixed top-0 right-0 z-30 h-16 bg-white/80 dark:bg-gray-900/80 backdrop-blur-xl border-b border-gray-100 dark:border-gray-800 flex items-center gap-4 px-6 transition-all duration-[250ms]"
+      style={{ left: collapsed ? 72 : 240 }}
     >
       {/* Search */}
       <div className="flex-1 max-w-md relative">
