@@ -1,36 +1,63 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Investone AI
 
-## Getting Started
+AI-powered investment platform — frontend service for the Securities Market TechSprint.
 
-First, run the development server:
+## Tech stack
+
+- **Framework:** Next.js 16 + React 19 + TypeScript
+- **Styling:** Tailwind CSS v4 with custom design tokens
+- **Components:** Radix UI + shadcn/ui pattern (CVA)
+- **Charts:** Recharts
+- **Animations:** Framer Motion
+- **Icons:** Lucide React
+
+## Setup
+
+> Run all commands from inside the `investone-ai/` directory.
 
 ```bash
+cd investone-ai
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Project structure
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```
+investone-ai/
+├── app/
+│   ├── (auth)/         # login, signup
+│   ├── (app)/          # authenticated routes
+│   │   ├── dashboard/
+│   │   ├── portfolio/
+│   │   ├── ai-assistant/
+│   │   ├── explorer/
+│   │   ├── risk-analysis/
+│   │   ├── health-score/
+│   │   ├── goals/
+│   │   ├── alerts/
+│   │   ├── learning/
+│   │   ├── profile/
+│   │   ├── settings/
+│   │   └── admin/
+│   └── globals.css     # design tokens + global utilities
+├── components/
+│   ├── ui/             # base components (Button, Card, Input, …)
+│   ├── shared/         # layout components (Sidebar, TopBar, …)
+│   ├── charts/
+│   ├── dashboard/
+│   ├── landing/
+│   └── portfolio/
+└── lib/                # utilities
+```
 
-## Learn More
+## Scripts
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+| Command | Description |
+|---|---|
+| `npm run dev` | Start development server |
+| `npm run build` | Production build |
+| `npm run start` | Start production server |
+| `npm run lint` | Run ESLint |
