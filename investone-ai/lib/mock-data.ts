@@ -132,6 +132,10 @@ export const portfolioStats = {
   diversificationScore: 82,
   riskLevel: 'Moderate',
   healthScore: 78,
+  // Aliases for pre-existing dashboard page
+  overallReturn: 22.24,
+  todaysGain: 12450,
+  todaysGainPct: 0.41,
 }
 
 // ── Monthly Growth Data ──────────────────────────────────────────────────────
@@ -151,16 +155,16 @@ export const monthlyGrowthData: MonthlyData[] = [
 ]
 
 // ── Sector Allocation ────────────────────────────────────────────────────────
-export const sectorAllocation: SectorAllocation[] = [
-  { sector: 'IT', value: 340000, percent: 11.2, color: '#0B6EFD' },
-  { sector: 'Banking & NBFC', value: 290000, percent: 9.55, color: '#00B894' },
-  { sector: 'Equity MF', value: 793000, percent: 26.1, color: '#F4B400' },
-  { sector: 'Debt & Bonds', value: 484000, percent: 15.93, color: '#6366F1' },
-  { sector: 'Real Estate', value: 248000, percent: 8.17, color: '#EC4899' },
-  { sector: 'Infrastructure', value: 175000, percent: 5.76, color: '#14B8A6' },
-  { sector: 'Gold', value: 150000, percent: 4.94, color: '#F59E0B' },
-  { sector: 'Energy & Auto', value: 337000, percent: 11.1, color: '#8B5CF6' },
-  { sector: 'Consumer', value: 220620, percent: 7.26, color: '#EF4444' },
+export const sectorAllocation: (SectorAllocation & { allocation: number })[] = [
+  { sector: 'IT', value: 340000, percent: 11.2, allocation: 11.2, color: '#0B6EFD' },
+  { sector: 'Banking & NBFC', value: 290000, percent: 9.55, allocation: 9.55, color: '#00B894' },
+  { sector: 'Equity MF', value: 793000, percent: 26.1, allocation: 26.1, color: '#F4B400' },
+  { sector: 'Debt & Bonds', value: 484000, percent: 15.93, allocation: 15.93, color: '#6366F1' },
+  { sector: 'Real Estate', value: 248000, percent: 8.17, allocation: 8.17, color: '#EC4899' },
+  { sector: 'Infrastructure', value: 175000, percent: 5.76, allocation: 5.76, color: '#14B8A6' },
+  { sector: 'Gold', value: 150000, percent: 4.94, allocation: 4.94, color: '#F59E0B' },
+  { sector: 'Energy & Auto', value: 337000, percent: 11.1, allocation: 11.1, color: '#8B5CF6' },
+  { sector: 'Consumer', value: 220620, percent: 7.26, allocation: 7.26, color: '#EF4444' },
 ]
 
 export const assetTypeAllocation = [
@@ -176,17 +180,17 @@ export const assetTypeAllocation = [
 ]
 
 // ── Transactions ─────────────────────────────────────────────────────────────
-export const recentTransactions: Transaction[] = [
-  { id: 'tx1', date: '2024-07-12', type: 'SIP', assetName: 'SBI Bluechip Fund', assetType: 'Mutual Fund', amount: 5000, units: 148.28, price: 33.72, status: 'Completed' },
-  { id: 'tx2', date: '2024-07-11', type: 'Buy', assetName: 'HDFC Bank', assetType: 'Stock', amount: 16500, units: 10, price: 1650, status: 'Completed' },
-  { id: 'tx3', date: '2024-07-10', type: 'Dividend', assetName: 'Embassy Office Parks REIT', assetType: 'REIT', amount: 3200, units: 0, price: 0, status: 'Completed' },
-  { id: 'tx4', date: '2024-07-09', type: 'Buy', assetName: 'Nifty BeES ETF', assetType: 'ETF', amount: 12500, units: 500, price: 25.0, status: 'Completed' },
-  { id: 'tx5', date: '2024-07-08', type: 'Interest', assetName: 'HDFC NCD 8.55%', assetType: 'Corporate Bond', amount: 2138, units: 0, price: 0, status: 'Completed' },
-  { id: 'tx6', date: '2024-07-07', type: 'SIP', assetName: 'Axis Flexi Cap Fund', assetType: 'Mutual Fund', amount: 3000, units: 120.0, price: 25.0, status: 'Completed' },
-  { id: 'tx7', date: '2024-07-05', type: 'Sell', assetName: 'Asian Paints', assetType: 'Stock', amount: 15200, units: 5, price: 3040, status: 'Completed' },
-  { id: 'tx8', date: '2024-07-03', type: 'Buy', assetName: 'Reliance Industries', assetType: 'Stock', amount: 30625, units: 10, price: 3062.5, status: 'Completed' },
-  { id: 'tx9', date: '2024-07-01', type: 'SIP', assetName: 'HDFC Mid-Cap Fund', assetType: 'Mutual Fund', amount: 2000, units: 54.5, price: 36.7, status: 'Completed' },
-  { id: 'tx10', date: '2024-06-28', type: 'Dividend', assetName: 'Powergrid InvIT', assetType: 'InvIT', amount: 1475, units: 0, price: 0, status: 'Completed' },
+export const recentTransactions: (Transaction & { asset: string })[] = [
+  { id: 'tx1', date: '2024-07-12', type: 'SIP', assetName: 'SBI Bluechip Fund', asset: 'SBI Bluechip Fund', assetType: 'Mutual Fund', amount: 5000, units: 148.28, price: 33.72, status: 'Completed' },
+  { id: 'tx2', date: '2024-07-11', type: 'Buy', assetName: 'HDFC Bank', asset: 'HDFC Bank', assetType: 'Stock', amount: 16500, units: 10, price: 1650, status: 'Completed' },
+  { id: 'tx3', date: '2024-07-10', type: 'Dividend', assetName: 'Embassy Office Parks REIT', asset: 'Embassy Office Parks REIT', assetType: 'REIT', amount: 3200, units: 0, price: 0, status: 'Completed' },
+  { id: 'tx4', date: '2024-07-09', type: 'Buy', assetName: 'Nifty BeES ETF', asset: 'Nifty BeES ETF', assetType: 'ETF', amount: 12500, units: 500, price: 25.0, status: 'Completed' },
+  { id: 'tx5', date: '2024-07-08', type: 'Interest', assetName: 'HDFC NCD 8.55%', asset: 'HDFC NCD 8.55%', assetType: 'Corporate Bond', amount: 2138, units: 0, price: 0, status: 'Completed' },
+  { id: 'tx6', date: '2024-07-07', type: 'SIP', assetName: 'Axis Flexi Cap Fund', asset: 'Axis Flexi Cap Fund', assetType: 'Mutual Fund', amount: 3000, units: 120.0, price: 25.0, status: 'Completed' },
+  { id: 'tx7', date: '2024-07-05', type: 'Sell', assetName: 'Asian Paints', asset: 'Asian Paints', assetType: 'Stock', amount: 15200, units: 5, price: 3040, status: 'Completed' },
+  { id: 'tx8', date: '2024-07-03', type: 'Buy', assetName: 'Reliance Industries', asset: 'Reliance Industries', assetType: 'Stock', amount: 30625, units: 10, price: 3062.5, status: 'Completed' },
+  { id: 'tx9', date: '2024-07-01', type: 'SIP', assetName: 'HDFC Mid-Cap Fund', asset: 'HDFC Mid-Cap Fund', assetType: 'Mutual Fund', amount: 2000, units: 54.5, price: 36.7, status: 'Completed' },
+  { id: 'tx10', date: '2024-06-28', type: 'Dividend', assetName: 'Powergrid InvIT', asset: 'Powergrid InvIT', assetType: 'InvIT', amount: 1475, units: 0, price: 0, status: 'Completed' },
 ]
 
 // ── Goals ────────────────────────────────────────────────────────────────────
@@ -266,6 +270,20 @@ export const recentSignups = [
   { name: 'Kavitha Nair', email: 'kavitha.n@gmail.com', date: '10 Jul 2024', plan: 'Free', kyc: 'Rejected' },
 ]
 
+// ── AI Chat ───────────────────────────────────────────────────────────────────
+export const chatMessages = [
+  { id: 1, role: 'assistant', content: "Hello! I'm your InvestOne AI assistant. I can help you understand investment instruments, review your portfolio, explain market concepts, and answer questions about REITs, InvITs, bonds, and more. What would you like to know today?", time: '09:00 AM' },
+]
+
+export const suggestedQuestions = [
+  'Explain REIT',
+  'What are InvITs?',
+  'Review my portfolio',
+  'How to save tax?',
+  'Best SIPs for 2024',
+  'What is bond yield?',
+]
+
 // ── Compatibility aliases (used by pre-existing dashboard page) ──────────────
 export const assetAllocation = assetTypeAllocation.map(a => ({ name: a.name, value: a.percent, color: a.color }))
 export const monthlyGrowth = monthlyGrowthData.map(m => ({ month: m.month, value: m.value, invested: m.invested }))
@@ -287,3 +305,25 @@ export const aiResponses: Record<string, string> = {
   'Best SIPs for 2024': `🚀 **Top SIP Recommendations for 2024**\n\nBased on your risk profile (Moderate) and current portfolio:\n\n**Large Cap (Stability)**\n1. **Mirae Asset Large Cap Fund** — 5-star rated, consistent outperformer\n   → Suggest: ₹5,000/month\n\n2. **SBI Bluechip Fund** *(you already hold this — great choice!)*\n\n**Flexi/Multi Cap (Growth)**\n3. **Parag Parikh Flexi Cap Fund** — International diversification, value-oriented\n   → Suggest: ₹3,000/month\n\n4. **Kotak Flexi Cap Fund** — Strong mid-large mix\n   → Suggest: ₹2,000/month\n\n**Mid Cap (High Growth)**\n5. **Motilal Oswal Midcap Fund** — Top performer, 35%+ last 1 year\n   → Suggest: ₹2,000/month (moderate risk)\n\n**Debt (Stability)**\n6. **HDFC Short Duration Fund** — For emergency fund accumulation\n   → Suggest: ₹5,000/month\n\n**Total suggested monthly SIP: ₹17,000** (in addition to your existing SIPs)`,
   'What is bond yield?': `📈 **Understanding Bond Yield**\n\nBond yield is the return you earn on a bond investment. It's one of the most important concepts in fixed income investing.\n\n**Simple Yield Formula:**\nYield = Annual Coupon ÷ Bond Price × 100\n\n**Example:**\n• You buy a G-Sec with face value ₹1,000, coupon 7.26%\n• If bond price rises to ₹1,050: Yield = 72.6 ÷ 1050 = 6.91%\n• If bond price falls to ₹950: Yield = 72.6 ÷ 950 = 7.64%\n\n**Key Principle: Price and Yield move inversely**\n⬆️ Bond price rises → Yield falls\n⬇️ Bond price falls → Yield rises\n\n**Types of Yield:**\n• **Current Yield** — Annual coupon / Current price\n• **YTM (Yield to Maturity)** — Total return if held to maturity\n• **XIRR** — Used for SIP-style bond investments\n\n**Why it matters:**\nYour GOI 7.26% 2029 G-Sec has a YTM of ~7.1% at current prices. If RBI cuts rates, bond prices will rise and your portfolio will gain.`,
 }
+
+// ── Health Score ──────────────────────────────────────────────────────────────
+export const healthScoreFactors = [
+  { name: "Diversification", score: 85, description: "Spread across 7 asset classes", icon: "🎯" },
+  { name: "Liquidity", score: 72, description: "72% in highly liquid assets", icon: "💧" },
+  { name: "Risk Balance", score: 78, description: "Well-balanced risk across holdings", icon: "⚖️" },
+  { name: "Sector Concentration", score: 65, description: "Financial sector slightly overweight", icon: "🏢" },
+  { name: "Volatility", score: 80, description: "Portfolio beta of 0.82", icon: "📊" },
+]
+export const historicalHealthScores = [
+  { month: "Jan '25", score: 68 }, { month: "Feb '25", score: 71 },
+  { month: "Mar '25", score: 73 }, { month: "Apr '25", score: 72 },
+  { month: "May '25", score: 75 }, { month: "Jun '25", score: 77 },
+  { month: "Jul '25", score: 78 },
+]
+export const aiSuggestions = [
+  "Consider reducing Financial sector exposure from 28% to under 20% for better diversification.",
+  "Your emergency fund goal is 80% complete — great progress! Consider boosting SIP by ₹5,000/month.",
+  "Bajaj Finance (31.5% returns) has outperformed — consider booking partial profits to rebalance.",
+  "Adding Sovereign Gold Bonds (SGBs) in current allocation could improve portfolio stability.",
+  "Your bond allocation at 7% is below the recommended 15% for a Moderate risk profile.",
+]

@@ -175,16 +175,16 @@ export default function DashboardPage() {
           <div className="space-y-3">
             {recentTransactions.slice(0, 5).map((tx) => (
               <div key={tx.id} className="flex items-center gap-3">
-                <div className={`w-8 h-8 rounded-xl flex items-center justify-center text-xs font-bold shrink-0 ${tx.type === 'BUY' || tx.type === 'SIP' ? 'bg-emerald-50 text-emerald-600' : tx.type === 'SELL' ? 'bg-red-50 text-red-500' : 'bg-blue-50 text-[#0B6EFD]'}`}>
-                  {tx.type === 'DIVIDEND' ? '₹' : tx.type === 'SIP' ? 'SIP' : tx.type === 'BUY' ? 'B' : 'S'}
+                <div className={`w-8 h-8 rounded-xl flex items-center justify-center text-xs font-bold shrink-0 ${tx.type === 'Buy' || tx.type === 'SIP' ? 'bg-emerald-50 text-emerald-600' : tx.type === 'Sell' ? 'bg-red-50 text-red-500' : 'bg-blue-50 text-[#0B6EFD]'}`}>
+                  {tx.type === 'Dividend' ? '₹' : tx.type === 'SIP' ? 'SIP' : tx.type === 'Buy' ? 'B' : 'S'}
                 </div>
                 <div className="flex-1 min-w-0">
-                  <p className="text-xs font-semibold text-[var(--fg)] truncate">{tx.asset}</p>
+                  <p className="text-xs font-semibold text-[var(--fg)] truncate">{tx.assetName}</p>
                   <p className="text-[10px] text-[var(--muted-fg)]">{tx.assetType} · {tx.date}</p>
                 </div>
                 <div className="text-right shrink-0">
-                  <p className={`text-xs font-bold ${tx.type === 'SELL' ? 'text-red-500' : 'text-emerald-600'}`}>
-                    {tx.type === 'SELL' ? '-' : '+'}₹{tx.amount.toLocaleString('en-IN')}
+                  <p className={`text-xs font-bold ${tx.type === 'Sell' ? 'text-red-500' : 'text-emerald-600'}`}>
+                    {tx.type === 'Sell' ? '-' : '+'}₹{tx.amount.toLocaleString('en-IN')}
                   </p>
                 </div>
               </div>
