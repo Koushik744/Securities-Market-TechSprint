@@ -1,9 +1,9 @@
 "use client"
 import { motion } from "framer-motion"
-import { TrendingUp, TrendingDown, PieChart, Wallet, Activity, Shield, ArrowUpRight, RefreshCw } from "lucide-react"
-import { AreaChart, Area, PieChart as RechartsPie, Pie, Cell, BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, Legend } from "recharts"
+import { TrendingUp, PieChart, Wallet, Activity, Shield, ArrowUpRight, RefreshCw } from "lucide-react"
+import { AreaChart, Area, PieChart as RechartsPie, Pie, Cell, BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer } from "recharts"
 import { portfolioStats, assetAllocation, monthlyGrowth, sectorAllocation, recentTransactions } from "@/lib/mock-data"
-import { formatCurrency, formatPercent, getReturnColor } from "@/lib/utils"
+import { formatCurrency, formatPercent } from "@/lib/utils"
 import { useState, useEffect } from "react"
 
 function AnimatedValue({ value, prefix = "", suffix = "", decimals = 0 }: { value: number; prefix?: string; suffix?: string; decimals?: number }) {

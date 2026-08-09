@@ -2,14 +2,13 @@
 
 import { useState } from "react"
 import { motion } from "framer-motion"
-import { Search, Filter, TrendingUp, TrendingDown, ArrowUpRight } from "lucide-react"
+import { Search, Filter, TrendingUp, TrendingDown } from "lucide-react"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Input } from "@/components/ui/input"
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs"
 import { portfolioHoldings, portfolioStats } from "@/lib/mock-data"
 import { formatCurrency, formatPercent } from "@/lib/utils"
-import type { AssetType } from "@/lib/mock-data"
 
 const assetTabs: Array<{ label: string; value: string }> = [
   { label: 'All', value: 'all' },

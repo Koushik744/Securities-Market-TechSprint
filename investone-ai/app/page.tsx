@@ -6,7 +6,7 @@ import { motion } from "framer-motion"
 import {
   Zap, TrendingUp, Shield, Bot, BookOpen, Bell, Compass,
   PieChart, Check, ChevronDown, ChevronUp, ArrowRight,
-  Star, BarChart3, Target, Lock, Smartphone, Globe
+  Star, BarChart3, Lock, Smartphone, Globe
 } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { AnimatedNumber } from "@/components/shared/AnimatedNumber"
@@ -133,7 +133,7 @@ export default function LandingPage() {
               transition={{ delay: 0.2 }}
               className="text-xl text-gray-500 dark:text-gray-400 max-w-2xl mx-auto mb-10"
             >
-              India's first unified multi-asset investment super app. Consolidate stocks, mutual funds, ETFs, REITs, InvITs, bonds, and gold — powered by AI to make you a smarter investor.
+              India&apos;s first unified multi-asset investment super app. Consolidate stocks, mutual funds, ETFs, REITs, InvITs, bonds, and gold — powered by AI to make you a smarter investor.
             </motion.p>
 
             <motion.div
@@ -262,7 +262,7 @@ export default function LandingPage() {
           <div className="text-center mb-16">
             <p className="text-[#0B6EFD] font-semibold text-sm uppercase tracking-wider mb-3">Features</p>
             <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">Everything you need to invest better</h2>
-            <p className="text-lg text-gray-500 max-w-2xl mx-auto">Built for India's retail investors who deserve institutional-grade tools and insights.</p>
+            <p className="text-lg text-gray-500 max-w-2xl mx-auto">Built for India&apos;s retail investors who deserve institutional-grade tools and insights.</p>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {features.map((f, i) => {
@@ -339,7 +339,7 @@ export default function LandingPage() {
                     <Star key={j} className="w-4 h-4 text-amber-400 fill-amber-400" />
                   ))}
                 </div>
-                <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed mb-4">"{t.text}"</p>
+                <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed mb-4">&quot;{t.text}&quot;</p>
                 <div className="flex items-center gap-3">
                   <div className="w-10 h-10 rounded-full bg-gradient-to-br from-[#0B6EFD] to-[#00B894] flex items-center justify-center text-white text-xs font-bold">
                     {t.initials}
@@ -482,7 +482,7 @@ export default function LandingPage() {
                 </div>
                 <span className="font-bold text-white">InvestOne AI</span>
               </div>
-              <p className="text-sm leading-relaxed">India's unified multi-asset investment super app for retail investors.</p>
+              <p className="text-sm leading-relaxed">India&apos;s unified multi-asset investment super app for retail investors.</p>
               <p className="text-xs mt-3 text-gray-500">Built for SEBI Securities Market TechSprint 2024</p>
             </div>
             {[

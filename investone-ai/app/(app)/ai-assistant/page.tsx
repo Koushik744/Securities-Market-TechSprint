@@ -11,18 +11,19 @@ export default function AIAssistantPage() {
   const [input, setInput] = useState("")
   const [typing, setTyping] = useState(false)
   const bottomRef = useRef<HTMLDivElement>(null)
+  const nextId = useRef(Math.max(0, ...chatMessages.map(m => m.id)) + 1)
 
   useEffect(() => { bottomRef.current?.scrollIntoView({ behavior: "smooth" }) }, [messages, typing])
 
   const sendMessage = async (text: string) => {
     if (!text.trim()) return
-    const userMsg: Message = { id: Date.now(), role: "user", content: text, time: new Date().toLocaleTimeString('en-IN', { hour: '2-digit', minute: '2-digit' }) }
+    const userMsg: Message = { id: nextId.current++, role: "user", content: text, time: new Date().toLocaleTimeString('en-IN', { hour: '2-digit', minute: '2-digit' }) }
     setMessages(prev => [...prev, userMsg])
     setInput("")
     setTyping(true)
     await new Promise(r => setTimeout(r, 1200))
     const response = aiResponses[text] || `I understand you're asking about "${text}". As your InvestOne AI assistant, I can help you understand this investment concept better. Based on the Indian securities market context and your current portfolio, let me provide you with relevant information. Would you like me to elaborate on any specific aspect?`
-    const aiMsg: Message = { id: Date.now() + 1, role: "assistant", content: response, time: new Date().toLocaleTimeString('en-IN', { hour: '2-digit', minute: '2-digit' }) }
+    const aiMsg: Message = { id: nextId.current++, role: "assistant", content: response, time: new Date().toLocaleTimeString('en-IN', { hour: '2-digit', minute: '2-digit' }) }
     setTyping(false)
     setMessages(prev => [...prev, aiMsg])
   }

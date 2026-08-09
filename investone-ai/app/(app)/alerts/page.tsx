@@ -1,19 +1,13 @@
 "use client"
 import { useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
-import { Bell, X, CheckCircle, AlertTriangle, Info, TrendingUp, Bot, Target } from "lucide-react"
+import { X, CheckCircle } from "lucide-react"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs"
 import { Switch } from "@/components/ui/switch"
 import { alerts } from "@/lib/mock-data"
-import type { Alert } from "@/lib/mock-data"
 
 const tabMap: Record<string, string> = { all: 'all', market: 'market', portfolio: 'portfolio', dividend: 'dividend', goal: 'goal', ai: 'ai' }
-
-const iconMap: Record<string, React.FC<{className?: string}>> = {
-  market: TrendingUp, portfolio: TrendingUp, dividend: CheckCircle, goal: Target, ai: Bot,
-}
 
 const severityStyles: Record<string, { icon: string; className: string }> = {
   info: { icon: '💡', className: 'border-l-blue-400 bg-blue-50/50 dark:bg-blue-900/10' },
